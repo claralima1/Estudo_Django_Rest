@@ -1,3 +1,32 @@
 from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Autor, Livro, Emprestimo, Reserva, Multa, Categoria, Editora
+from .serializers import AutorSerializer, LivroSerializer, EmprestimoSerializer, ReservaSerializer, MultaSerializer, CategoriaSerializer, EditoraSerializer
 
-# Create your views here.
+class AutorViewSet(viewsets.ModelViewSet):
+    queryset = Autor.objects.all()
+    serializer_class = AutorSerializer
+
+class LivroViewSet(viewsets.ModelViewSet):
+    queryset = Livro.objects.all()
+    serializer_class = LivroSerializer
+
+class EmprestimoViewSet(viewsets.ModelViewSet):
+    queryset = Emprestimo.objects.all()
+    serializer_class = EmprestimoSerializer
+
+class ReservaViewSet(viewsets.ModelViewSet):
+    queryset = Reserva.objects.all()
+    serializer_class = ReservaSerializer
+
+class MultaViewSet(viewsets.ModelViewSet):
+    queryset = Multa.objects.all()
+    serializer_class = MultaSerializer
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class EditoraViewSet(viewsets.ModelViewSet):
+    queryset = Editora.objects.all()
+    serializer_class = EditoraSerializer
